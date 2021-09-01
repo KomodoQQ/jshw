@@ -1,11 +1,12 @@
 function countPositivesSumNegatives(input) {
-  let negativeSum = 0;
-  let positiveCounter = 0;
   if(input == null || input.length == 0) {
     return [];
   }
-  input.forEach((elem) => {
-    elem > 0 ? positiveCounter++ : negativeSum += elem;
-  })
-    return [positiveCounter, negativeSum];
+  
+  let result = input.reduce((acc, item) => {
+    item > 0 ? acc.positiveCounter++ : acc.negativeSum += item;
+    return acc;
+  }, {positiveCounter: 0, negativeSum: 0});
+
+  return [result.positiveCounter, result.negativeSum];
 }

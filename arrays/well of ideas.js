@@ -1,12 +1,13 @@
 function well(x){
-  let goodsCounter = 0;
-  x.forEach((arr) => {
+  let goodsCounter = x.reduce((acc, arr) => {
     arr.forEach((elem) => {
       if(typeof elem == 'string' && elem.toLowerCase() == 'good') {
-        goodsCounter++;
+        acc++;
       }
     })
-  })
+    return acc;
+  }, 0);
+  
   if(goodsCounter < 1) {
     return 'Fail!'
   }
