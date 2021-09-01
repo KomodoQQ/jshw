@@ -20,6 +20,16 @@ const cities = [
     population: 326154
   }
 ];
-console.log(cities.filter((city) => {
-  return city.population > 200000;
-}).sort((a, b) => { return a.population - b.population}))
+console.log(
+  cities
+    .filter((city) => {
+      return city.population > 200000;
+    })
+    .sort((a, b) => {
+      return a.population - b.population;
+    })
+    .map((obj) => {
+      return obj.city;
+    })
+    .join(',')
+);
